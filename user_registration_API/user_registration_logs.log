@@ -1,0 +1,23 @@
+2025-07-25 19:31:41,762 - INFO - Received registration request for john.doe@gmail.com,9876543210
+2025-07-25 19:31:47,660 - INFO - Received registration request for john.doe@gmail.com,9876543210
+2025-07-25 19:32:13,551 - INFO - Received registration request for john.doe@gmail.com,9876543210
+2025-07-25 19:32:28,073 - INFO - Received registration request for john.doe@gmail.com,9876543210
+2025-07-25 19:32:47,388 - INFO - Received registration request for john.doe@gmail.com,9876543210
+2025-07-25 19:34:53,560 - INFO - Received registration request for john.doe@gmail.com,9876543210
+2025-07-25 19:34:56,269 - INFO - Received registration request for john.doe@gmail.com,9876543210
+2025-07-25 19:35:13,484 - INFO - Received registration request for john.doe@gmail.com,9876543210
+2025-07-25 19:35:15,272 - INFO - Received registration request for john.doe@gmail.com,9876543210
+2025-07-25 19:38:32,027 - INFO - Received registration request for john.doe@gmail.com,9876543210
+2025-07-25 19:38:32,294 - INFO - User john.doe@gmail.com,9876543210 registered successfully.
+2025-07-25 19:38:46,700 - INFO - Received registration request for john.doe@gmail.com,9876543210
+2025-07-25 19:38:46,733 - WARNING - Duplicate registration attempt: john.doe@gmail.com or 9876543210
+2025-07-25 19:39:10,253 - INFO - Received registration request for sara.doe@gmail.com,9876543210
+2025-07-25 19:39:10,283 - WARNING - Duplicate registration attempt: sara.doe@gmail.com or 9876543210
+2025-07-25 19:39:29,327 - INFO - Received registration request for john.doe@gmail.com,987654321
+2025-07-25 19:39:36,113 - WARNING - Duplicate registration attempt: john.doe@gmail.com or 987654321
+2025-07-25 19:42:26,973 - INFO - Received registration request for john.doe@gmail.com,987654321
+2025-07-25 19:42:26,998 - WARNING - Duplicate registration attempt: john.doe@gmail.com or 987654321
+2025-07-25 19:47:03,686 - INFO - Received registration request for sam@gmail.com,8976543210
+2025-07-25 19:47:03,747 - INFO - User sam@gmail.com,8976543210 registered successfully.
+2025-07-25 20:04:58,004 - INFO - Received registration request for sara@gmail.com,8967543210
+2025-07-25 20:04:58,302 - INFO - User sara@gmail.com,8967543210 registered successfully.
