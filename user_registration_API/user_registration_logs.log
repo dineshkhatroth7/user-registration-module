@@ -21,3 +21,19 @@
 2025-07-25 19:47:03,747 - INFO - User sam@gmail.com,8976543210 registered successfully.
 2025-07-25 20:04:58,004 - INFO - Received registration request for sara@gmail.com,8967543210
 2025-07-25 20:04:58,302 - INFO - User sara@gmail.com,8967543210 registered successfully.
+2025-07-25 21:14:30,851 - INFO - Received registration request for sara@gmail.com,8967543210
+2025-07-25 21:14:31,113 - WARNING - Duplicate registration attempt: sara@gmail.com or 8967543210
+2025-07-25 21:14:48,964 - INFO - Received registration request for sam@gmail.com,896754321
+2025-07-25 21:14:49,002 - WARNING - Duplicate registration attempt: sam@gmail.com or 896754321
+2025-07-25 21:15:27,419 - INFO - Received registration request for sham@gmail.com,896754321
+2025-07-25 21:15:27,918 - INFO - User sham@gmail.com,896754321 registered successfully.
+2025-07-25 21:16:54,805 - INFO - Received registration request for shrama@gmail.com,896754
+2025-07-25 21:16:56,466 - INFO - User shrama@gmail.com,896754 registered successfully.
+2025-07-25 21:21:45,500 - INFO - Received registration request for pooja@gmail.com,9675432101
+2025-07-25 21:21:47,110 - INFO - User pooja@gmail.com,9675432101 registered successfully.
+2025-07-25 21:22:31,946 - INFO - Received registration request for pooja@gmail.com,7367543210
+2025-07-25 21:22:33,219 - WARNING - Duplicate registration attempt: pooja@gmail.com or 7367543210
+2025-07-25 21:29:16,036 - INFO - Received registration request for gopal@gmail.com,7367543210
+2025-07-25 21:29:16,327 - INFO - User gopal@gmail.com,7367543210 registered successfully.
+2025-07-25 21:29:29,493 - INFO - Received registration request for gopal@gmail.com,7367543210
+2025-07-25 21:29:29,524 - WARNING - Duplicate registration attempt: gopal@gmail.com or 7367543210
