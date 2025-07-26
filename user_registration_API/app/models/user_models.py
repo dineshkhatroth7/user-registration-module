@@ -37,4 +37,7 @@ class UserRegister(BaseModel):
         return v
     
 
+class LoginRequest(BaseModel):
+   username:str
+   password:str = Field(min_length=8, max_length=20)
 

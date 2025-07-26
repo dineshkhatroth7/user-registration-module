@@ -1,10 +1,11 @@
 
-from app.models.user_models import UserRegister
+from app.models.user_models import UserRegister,LoginRequest
 from app.db.mongo import users_collection
 from app.utils.logger import logger  
-from app.utils.exceptions import UserAlreadyExistsException
+from app.utils.exceptions import UserAlreadyExistsException,InvalidCredentialsException
 from datetime import datetime
 from passlib.context import CryptContext
+
 
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -31,3 +32,20 @@ def register_user_service(request: UserRegister):
 
     logger.info(f"User {request.email},{request.mobile} registered successfully.")
     return {"message": " User registered successfully"}
+
+
+def login_user_service(request:LoginRequest):
+
+    key = "email" if "@" in request.username else "mobile"
+
+    user = users_collection.find_one({key: request.username})
+
+    if not user:
+        logger.warning(f"Login failed: {request.username} not found.")
+        raise InvalidCredentialsException()
+    
+    if not pwd_context.verify(request.password, user["password"]):
+        logger.warning(f"Login failed: Incorrect password for {request.username}")
+        raise InvalidCredentialsException()
+    
+    return {"message": "Login successful"}
