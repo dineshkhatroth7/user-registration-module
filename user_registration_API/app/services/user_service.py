@@ -5,6 +5,7 @@ from app.utils.logger import logger
 from app.utils.exceptions import UserAlreadyExistsException,InvalidCredentialsException
 from datetime import datetime
 from passlib.context import CryptContext
+from app.utils.jwt_handler import create_jwt_token
 
 
 
@@ -48,4 +49,16 @@ def login_user_service(request:LoginRequest):
         logger.warning(f"Login failed: Incorrect password for {request.username}")
         raise InvalidCredentialsException()
     
-    return {"message": "Login successful"}
+    payload = {
+        "sub": str(user["_id"]),
+        "email": user["email"],
+        "mobile": user["mobile"]
+    }
+    token = create_jwt_token(payload)
+
+
+    
+    return {"message": "Login successful",
+            "access_token": token,
+             "token_type": "bearer"
+             }
