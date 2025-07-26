@@ -3,7 +3,7 @@ import re
 def validate_mobile(v: str) -> str:
     pattern = r'^[6-9]\d{9}$'
     if not re.fullmatch(pattern, v):
-        raise ValueError("Mobile number must be a valid 10-digit Indian number.")
+        raise ValueError("Mobile number must be a valid 10-digit  number.")
     return v
 
 def validate_email_domain(v: str) -> str:

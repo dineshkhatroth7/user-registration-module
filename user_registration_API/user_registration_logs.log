@@ -46,3 +46,46 @@
 2025-07-26 12:26:57,286 - WARNING - Login failed: 743754320 not found.
 2025-07-26 12:27:14,121 - WARNING - Login failed: Incorrect password for 7437543201
 2025-07-26 14:04:56,984 - WARNING - Login failed: Incorrect password for 7437543201
+2025-07-26 17:43:23,919 - INFO - User 6884636213cf063669baf466 requested contact update
+2025-07-26 17:43:23,920 - INFO - Checking for existing email: newemail@gmail.com
+2025-07-26 17:43:24,200 - INFO - Checking for existing mobile: 9876543210
+2025-07-26 17:43:24,230 - WARNING - Mobile 9876543210 already in use by another user
+2025-07-26 17:43:27,377 - INFO - User 6884636213cf063669baf466 requested contact update
+2025-07-26 17:43:27,377 - INFO - Checking for existing email: newemail@gmail.com
+2025-07-26 17:43:27,405 - INFO - Checking for existing mobile: 9876543210
+2025-07-26 17:43:27,433 - WARNING - Mobile 9876543210 already in use by another user
+2025-07-26 17:47:43,291 - INFO - User 6884636213cf063669baf466 requested contact update
+2025-07-26 17:47:43,291 - INFO - Checking for existing email: newemail@gmail.com
+2025-07-26 17:47:43,318 - INFO - Checking for existing mobile: 9876543210
+2025-07-26 17:47:43,346 - WARNING - Mobile 9876543210 already in use by another user
+2025-07-26 17:48:34,401 - INFO - User 6884636213cf063669baf466 requested contact update
+2025-07-26 17:48:34,402 - INFO - Checking for existing email: newemail@gmail.com
+2025-07-26 17:48:34,429 - INFO - Checking for existing mobile: 9876453210
+2025-07-26 17:48:34,492 - INFO - User 6884636213cf063669baf466 updated contact: {'email': 'newemail@gmail.com', 'mobile': '9876453210'}
+2025-07-26 17:50:01,995 - INFO - User 6884636213cf063669baf466 requested contact update
+2025-07-26 17:50:01,996 - INFO - Checking for existing email: newemail@gmail.com
+2025-07-26 17:50:02,024 - INFO - Checking for existing mobile: 9876453210
+2025-07-26 17:50:02,080 - INFO - User 6884636213cf063669baf466 updated contact: {'email': 'newemail@gmail.com', 'mobile': '9876453210'}
+2025-07-26 17:50:04,817 - INFO - User 6884636213cf063669baf466 requested contact update
+2025-07-26 17:50:04,817 - INFO - Checking for existing email: newemail@gmail.com
+2025-07-26 17:50:04,846 - INFO - Checking for existing mobile: 9876453210
+2025-07-26 17:50:04,901 - INFO - User 6884636213cf063669baf466 updated contact: {'email': 'newemail@gmail.com', 'mobile': '9876453210'}
+2025-07-26 17:50:06,606 - INFO - User 6884636213cf063669baf466 requested contact update
+2025-07-26 17:50:06,606 - INFO - Checking for existing email: newemail@gmail.com
+2025-07-26 17:50:06,633 - INFO - Checking for existing mobile: 9876453210
+2025-07-26 17:50:06,685 - INFO - User 6884636213cf063669baf466 updated contact: {'email': 'newemail@gmail.com', 'mobile': '9876453210'}
+2025-07-26 17:50:22,966 - INFO - User 6884636213cf063669baf466 requested contact update
+2025-07-26 17:50:22,966 - INFO - Checking for existing email: newemail@gmail.com
+2025-07-26 17:50:22,993 - INFO - Checking for existing mobile: 9876453210
+2025-07-26 17:50:23,053 - INFO - User 6884636213cf063669baf466 updated contact: {'email': 'newemail@gmail.com', 'mobile': '9876453210'}
+2025-07-26 17:50:24,666 - INFO - User 6884636213cf063669baf466 requested contact update
+2025-07-26 17:50:24,666 - INFO - Checking for existing email: newemail@gmail.com
+2025-07-26 17:50:24,724 - INFO - Checking for existing mobile: 9876453210
+2025-07-26 17:50:24,783 - INFO - User 6884636213cf063669baf466 updated contact: {'email': 'newemail@gmail.com', 'mobile': '9876453210'}
+2025-07-26 17:51:29,209 - WARNING - Login failed: charan@gmail.com not found.
+2025-07-26 19:49:04,256 - INFO - Received registration request for venky@gmail.com,7437542301
+2025-07-26 19:49:06,278 - INFO - User venky@gmail.com,7437542301 registered successfully.
+2025-07-26 19:54:40,593 - INFO - User 6884e3dad5ee4fa2ad8e34f2 requested contact update
+2025-07-26 19:54:40,593 - INFO - Checking for existing email: newvenky@gmail.com
+2025-07-26 19:54:40,657 - INFO - Checking for existing mobile: 9874653120
+2025-07-26 19:54:40,802 - INFO - User 6884e3dad5ee4fa2ad8e34f2 updated contact: {'email': 'newvenky@gmail.com', 'mobile': '9874653120'}

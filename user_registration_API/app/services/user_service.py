@@ -1,11 +1,12 @@
 
-from app.models.user_models import UserRegister,LoginRequest
+from app.models.user_models import UserRegister,LoginRequest,ChangeContactRequest
 from app.db.mongo import users_collection
 from app.utils.logger import logger  
 from app.utils.exceptions import UserAlreadyExistsException,InvalidCredentialsException
 from datetime import datetime
 from passlib.context import CryptContext
 from app.utils.jwt_handler import create_jwt_token
+from bson import ObjectId
 
 
 
@@ -62,3 +63,44 @@ def login_user_service(request:LoginRequest):
             "access_token": token,
              "token_type": "bearer"
              }
+
+
+def change_user_contact_service(user_id: str, request: ChangeContactRequest):
+
+    logger.info(f"User {user_id} requested contact update")
+
+    updates = {}
+
+    if request.email:
+        logger.info(f"Checking for existing email: {request.email}")
+        email_exists = users_collection.find_one({
+            "_id": {"$ne": ObjectId(user_id)},
+            "email": request.email
+        })
+
+    if email_exists:
+        logger.warning(f"Email {request.email} already in use by another user")
+        raise UserAlreadyExistsException()
+        
+    updates["email"] = request.email
+
+    if request.mobile:
+        logger.info(f"Checking for existing mobile: {request.mobile}")
+        mobile_exists = users_collection.find_one({
+            "_id": {"$ne": ObjectId(user_id)},
+            "mobile": request.mobile
+        })
+    if mobile_exists:
+        logger.warning(f"Mobile {request.mobile} already in use by another user")
+        raise UserAlreadyExistsException()
+    
+    updates["mobile"] = request.mobile
+
+    users_collection.update_one(
+        {"_id": ObjectId(user_id)},
+        {"$set": updates}
+    )
+
+    logger.info(f"User {user_id} updated contact: {updates}")
+    
+    return {"message": "Contact updated successfully"}
