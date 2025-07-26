@@ -37,3 +37,9 @@
 2025-07-25 21:29:16,327 - INFO - User gopal@gmail.com,7367543210 registered successfully.
 2025-07-25 21:29:29,493 - INFO - Received registration request for gopal@gmail.com,7367543210
 2025-07-25 21:29:29,524 - WARNING - Duplicate registration attempt: gopal@gmail.com or 7367543210
+2025-07-26 10:40:58,370 - INFO - Received registration request for charan@gmail.com,7437543210
+2025-07-26 10:40:58,927 - INFO - User charan@gmail.com,7437543210 registered successfully.
+2025-07-26 11:05:18,109 - INFO - Received registration request for rajini@gmail.com,7437543201
+2025-07-26 11:05:19,474 - INFO - User rajini@gmail.com,7437543201 registered successfully.
+2025-07-26 11:05:23,275 - INFO - Received registration request for rajini@gmail.com,7437543201
+2025-07-26 11:05:23,947 - WARNING - Duplicate registration attempt: rajini@gmail.com or 7437543201
