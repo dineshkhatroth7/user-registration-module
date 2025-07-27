@@ -2,12 +2,12 @@
 from app.models.user_models import UserRegister,LoginRequest,ChangeContactRequest,ChangePasswordRequest
 from app.db.mongo import users_collection
 from app.utils.logger import logger  
-from app.utils.exceptions import UserAlreadyExistsException,InvalidCredentialsException,SamePasswordException,IncorrectOldPasswordException
+from app.utils.exceptions import UserAlreadyExistsException,InvalidCredentialsException,SamePasswordException,IncorrectOldPasswordException,PasswordExpiredException
 from datetime import datetime,timezone
 from passlib.context import CryptContext
 from app.utils.jwt_handler import create_jwt_token
 from bson import ObjectId
-from app.utils.password import hash_password,verify_password,pwd_context
+from app.utils.password import hash_password,verify_password,pwd_context,is_password_expired
 
 
 async def register_user_service(request: UserRegister):
@@ -53,6 +53,10 @@ async def login_user_service(request:LoginRequest):
     if not pwd_context.verify(request.password, user["password"]):
         logger.warning(f"Login failed: Incorrect password for {username}")
         raise InvalidCredentialsException()
+    
+    if is_password_expired(user.get("password_last_changed")):
+        logger.warning(f"Password expired for {username}")
+        raise PasswordExpiredException()
     
     payload = {
         "sub": str(user["_id"]),

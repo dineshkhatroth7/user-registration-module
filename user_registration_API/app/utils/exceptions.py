@@ -26,3 +26,9 @@ class SamePasswordException(HTTPException):
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="New password must be different from the old password or previously used passwords."
         )
+class PasswordExpiredException(HTTPException):
+    def __init__(self):
+        super().__init__(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Password expired. Please change your password."
+        )

@@ -150,3 +150,9 @@
 2025-07-27 14:21:42,941 - INFO - Checking for existing email: newcherry@gmail.com
 2025-07-27 14:21:43,553 - INFO - User 6885ddc8edcb94e2c3bfc958 updated contact: {'email': 'newcherry@gmail.com'}
 2025-07-27 14:21:43,553 - INFO - change_contact executed in 612 ms
+2025-07-27 19:53:26,196 - INFO - User 8749235126 logged in successfully.
+2025-07-27 19:53:26,196 - INFO - login executed in 1125 ms
+2025-07-27 19:54:32,503 - INFO - User 8749235126 logged in successfully.
+2025-07-27 19:54:32,503 - INFO - login executed in 449 ms
+2025-07-27 19:57:25,882 - WARNING - Password expired for 8749235126
+2025-07-27 19:57:44,926 - WARNING - Password expired for 8749235126
