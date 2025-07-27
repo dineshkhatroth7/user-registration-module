@@ -42,3 +42,12 @@ class ChangeContactRequest(BaseModel):
     @field_validator('mobile')
     def mobile_check(cls, v): 
         return validate_mobile(v)
+
+
+class ChangePasswordRequest(BaseModel):
+    old_password: str = Field(min_length=8, max_length=20)
+    new_password: str = Field(min_length=8, max_length=20)
+
+    @field_validator('new_password')
+    def password_check(cls, v): 
+        return validate_password_strength(v)
