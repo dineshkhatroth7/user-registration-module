@@ -89,3 +89,64 @@
 2025-07-26 19:54:40,593 - INFO - Checking for existing email: newvenky@gmail.com
 2025-07-26 19:54:40,657 - INFO - Checking for existing mobile: 9874653120
 2025-07-26 19:54:40,802 - INFO - User 6884e3dad5ee4fa2ad8e34f2 updated contact: {'email': 'newvenky@gmail.com', 'mobile': '9874653120'}
+2025-07-27 13:30:50,616 - INFO - Received registration request for cherry@gmail.com,7345742301
+2025-07-27 13:31:02,685 - INFO - Received registration request for cherry@gmail.com,7345742301
+2025-07-27 13:35:26,490 - INFO - Received registration request for cherry@gmail.com,7345742301
+2025-07-27 13:35:28,522 - INFO - User cherry@gmail.com,7345742301 registered successfully.
+2025-07-27 13:35:28,522 - INFO - register_user executed in 2032 ms
+2025-07-27 13:39:44,254 - INFO - Received registration request for cherry@gmail.com,7345742301
+2025-07-27 13:39:45,494 - WARNING - Duplicate registration attempt: cherry@gmail.com or 7345742301
+2025-07-27 13:46:20,329 - INFO - Received registration request for cherry@gmail.com,7345742301
+2025-07-27 13:46:21,761 - WARNING - Duplicate registration attempt: cherry@gmail.com or 7345742301
+2025-07-27 13:47:37,262 - INFO - Received registration request for henrry@gmail.com,7543742301
+2025-07-27 13:47:39,603 - INFO - User henrry@gmail.com,7543742301 registered successfully.
+2025-07-27 13:47:39,603 - INFO - register_user executed in 2340 ms
+2025-07-27 13:51:20,489 - INFO - User cherry@gmail.com logged in successfully.
+2025-07-27 13:51:20,490 - INFO - login executed in 628 ms
+2025-07-27 13:51:51,088 - INFO - User 7345742301 logged in successfully.
+2025-07-27 13:51:51,089 - INFO - login executed in 572 ms
+2025-07-27 13:52:05,417 - WARNING - Login failed: 734574230 not found.
+2025-07-27 13:52:29,176 - WARNING - Login failed: Incorrect password for 7345742301
+2025-07-27 13:55:52,464 - INFO - User 7345742301 logged in successfully.
+2025-07-27 13:55:52,464 - INFO - login executed in 629 ms
+2025-07-27 13:57:43,419 - INFO - User 6885ddc8edcb94e2c3bfc958 requested contact update
+2025-07-27 13:57:43,419 - INFO - Checking for existing email: newcherry@gmail.com
+2025-07-27 13:58:36,017 - INFO - User 6885ddc8edcb94e2c3bfc958 requested contact update
+2025-07-27 13:58:36,018 - INFO - Checking for existing email: necherry@gmail.com
+2025-07-27 13:58:43,259 - INFO - User 6885ddc8edcb94e2c3bfc958 requested contact update
+2025-07-27 13:58:43,259 - INFO - Checking for existing email: necherry@gmail.com
+2025-07-27 14:01:27,610 - INFO - User 7345742301 logged in successfully.
+2025-07-27 14:01:27,611 - INFO - login executed in 1113 ms
+2025-07-27 14:02:10,374 - INFO - User 6885ddc8edcb94e2c3bfc958 requested contact update
+2025-07-27 14:02:10,374 - INFO - Checking for existing email: necherry@gmail.com
+2025-07-27 14:02:10,549 - INFO - Checking for existing mobile: 8749531260
+2025-07-27 14:02:11,213 - INFO - User 6885ddc8edcb94e2c3bfc958 updated contact: {'email': 'necherry@gmail.com', 'mobile': '8749531260'}
+2025-07-27 14:02:11,213 - INFO - change_contact executed in 839 ms
+2025-07-27 14:03:40,886 - INFO - User 6885ddc8edcb94e2c3bfc958 requested contact update
+2025-07-27 14:04:29,244 - WARNING - Login failed: 7345742301 not found.
+2025-07-27 14:04:47,187 - INFO - User 8749531260 logged in successfully.
+2025-07-27 14:04:47,187 - INFO - login executed in 324 ms
+2025-07-27 14:05:17,522 - INFO - User 6885ddc8edcb94e2c3bfc958 requested contact update
+2025-07-27 14:05:26,150 - INFO - User 6885ddc8edcb94e2c3bfc958 requested contact update
+2025-07-27 14:07:08,854 - INFO - User 8749531260 logged in successfully.
+2025-07-27 14:07:08,854 - INFO - login executed in 609 ms
+2025-07-27 14:08:14,821 - INFO - User 6885ddc8edcb94e2c3bfc958 requested contact update
+2025-07-27 14:12:14,745 - INFO - User 8749531260 logged in successfully.
+2025-07-27 14:12:14,745 - INFO - login executed in 1195 ms
+2025-07-27 14:12:47,390 - INFO - User 6885ddc8edcb94e2c3bfc958 requested contact update
+2025-07-27 14:16:05,784 - INFO - User 8749531260 logged in successfully.
+2025-07-27 14:16:05,785 - INFO - login executed in 1961 ms
+2025-07-27 14:16:34,119 - INFO - User 6885ddc8edcb94e2c3bfc958 requested contact update
+2025-07-27 14:16:34,119 - INFO - Checking for existing mobile: 8749235126
+2025-07-27 14:16:34,193 - INFO - User 6885ddc8edcb94e2c3bfc958 updated contact: {'mobile': '8749235126'}
+2025-07-27 14:16:34,193 - INFO - change_contact executed in 75 ms
+2025-07-27 14:19:24,621 - INFO - User 8749235126 logged in successfully.
+2025-07-27 14:19:24,622 - INFO - login executed in 897 ms
+2025-07-27 14:21:25,221 - INFO - User 6885ddc8edcb94e2c3bfc958 requested contact update
+2025-07-27 14:21:25,222 - INFO - Checking for existing email: newcherry@gmail.com
+2025-07-27 14:21:26,112 - INFO - User 6885ddc8edcb94e2c3bfc958 updated contact: {'email': 'newcherry@gmail.com'}
+2025-07-27 14:21:26,113 - INFO - change_contact executed in 891 ms
+2025-07-27 14:21:42,941 - INFO - User 6885ddc8edcb94e2c3bfc958 requested contact update
+2025-07-27 14:21:42,941 - INFO - Checking for existing email: newcherry@gmail.com
+2025-07-27 14:21:43,553 - INFO - User 6885ddc8edcb94e2c3bfc958 updated contact: {'email': 'newcherry@gmail.com'}
+2025-07-27 14:21:43,553 - INFO - change_contact executed in 612 ms
