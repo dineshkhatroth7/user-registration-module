@@ -175,3 +175,11 @@
 2025-07-28 10:47:32,250 - INFO -  Email not found: henrr@gmail.com
 2025-07-28 10:47:32,251 - INFO - forgot_password executed in 38 ms
 2025-07-28 10:47:51,190 - WARNING - [ForgotPassword] Rate limit exceeded for henrry@gmail.com
+2025-07-28 11:41:15,041 - WARNING - [ForgotPassword] Rate limit exceeded for henrry@gmail.com
+2025-07-28 12:08:54,423 - WARNING - [ForgotPassword] henrry@gmail.com is temporarily locked 
+2025-07-28 12:18:41,149 - WARNING - [ForgotPassword] henrry@gmail.com is temporarily locked 
+2025-07-28 12:18:50,705 - WARNING - Login blocked: Account deactivated for 7543742301 until 2025-07-29 06:11:15.041000+00:00
+2025-07-28 12:18:52,590 - WARNING - Login blocked: Account deactivated for 7543742301 until 2025-07-29 06:11:15.041000+00:00
+2025-07-28 12:19:57,935 - INFO - Account reactivated for 7543742301
+2025-07-28 12:19:57,954 - INFO - User 7543742301 logged in successfully.
+2025-07-28 12:19:57,954 - INFO - login executed in 915 ms

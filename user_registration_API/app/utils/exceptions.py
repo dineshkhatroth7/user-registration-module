@@ -37,5 +37,12 @@ class MaxAttemptsException(HTTPException):
     def __init__(self):
         super().__init__(
             status_code=status.HTTP_429_TOO_MANY_REQUESTS,
-            detail="Max 3 reset attempts per day reached."
+            detail="Max 3 reset attempts per day reached.try again after 24h"
+        )
+
+class AccountDeactivatedException(HTTPException):
+    def __init__(self):
+        super().__init__(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Account temporarily deactivated. Please try again later."
         )

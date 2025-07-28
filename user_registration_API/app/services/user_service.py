@@ -2,7 +2,7 @@
 from app.models.user_models import UserRegister,LoginRequest,ChangeContactRequest,ChangePasswordRequest,ForgotPasswordRequest
 from app.db.mongo import users_collection
 from app.utils.logger import logger  
-from app.utils.exceptions import UserAlreadyExistsException,InvalidCredentialsException,SamePasswordException,IncorrectOldPasswordException,PasswordExpiredException,MaxAttemptsException
+from app.utils.exceptions import UserAlreadyExistsException,InvalidCredentialsException,SamePasswordException,IncorrectOldPasswordException,PasswordExpiredException,MaxAttemptsException,AccountDeactivatedException
 from datetime import datetime,timezone,timedelta
 from app.utils.jwt_handler import create_jwt_token
 from bson import ObjectId
@@ -54,6 +54,24 @@ async def login_user_service(request:LoginRequest):
         logger.warning(f"Login failed: Incorrect password for {username}")
         raise InvalidCredentialsException()
     
+    now = datetime.now(timezone.utc)
+    
+    deactivated_until = user.get("deactivated_until")
+
+    if deactivated_until and deactivated_until.tzinfo is None:
+       deactivated_until = deactivated_until.replace(tzinfo=timezone.utc)
+
+    if deactivated_until and now < deactivated_until:
+        logger.warning(f"Login blocked: Account deactivated for {username} until {deactivated_until}")
+        raise AccountDeactivatedException()
+
+    if deactivated_until and now >= deactivated_until:
+        await users_collection.update_one(
+            {"_id": user["_id"]},
+            {"$set": {"active": True}, "$unset": {"deactivated_until": ""}}
+        )
+        logger.info(f"Account reactivated for {username}")
+
     if is_password_expired(user.get("password_last_changed")):
         logger.warning(f"Password expired for {username}")
         raise PasswordExpiredException()
@@ -160,12 +178,38 @@ async def forgot_password_service(request: ForgotPasswordRequest):
         return 
 
     today_str = str(datetime.now(timezone.utc).date())
+    now_utc = datetime.now(timezone.utc)
     last_request = user.get("last_reset_request")
     attempts = user.get("reset_attempts", 0)
+
+    if user.get("active")is False:
+        until=user.get("deactivated_until")
+        
+        if until and until.tzinfo is None:
+           until = until.replace(tzinfo=timezone.utc)
+
+        if until and now_utc < until:
+           logger.warning(f"[ForgotPassword] {email} is temporarily locked ")
+           raise MaxAttemptsException()
+        else:
+            await users_collection.update_one(
+                {"_id": user["_id"]},
+                {"$set": {"active": True}, "$unset": {"deactivated_until": ""}}
+            )
 
     if last_request == today_str:
         if attempts >= MAX_ATTEMPTS_PER_DAY:
             logger.warning(f"[ForgotPassword] Rate limit exceeded for {email}")
+            deactivate_until = now_utc + timedelta(hours=24)
+            await users_collection.update_one(
+                {"_id": user["_id"]},
+                {
+                    "$set": {
+                        "active": False,
+                        "deactivated_until": deactivate_until
+                    }
+                }
+            )
             raise MaxAttemptsException()
         await users_collection.update_one(
             {"_id": user["_id"]},
@@ -181,7 +225,7 @@ async def forgot_password_service(request: ForgotPasswordRequest):
         )
 
     token = secrets.token_urlsafe(32)
-    expiry = datetime.now(timezone.utc) + timedelta(hours=RESET_TOKEN_EXPIRY_HOURS)
+    expiry = now_utc + timedelta(hours=RESET_TOKEN_EXPIRY_HOURS)
 
     await users_collection.update_one(
         {"_id": user["_id"]},
