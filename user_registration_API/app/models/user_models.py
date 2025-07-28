@@ -51,3 +51,7 @@ class ChangePasswordRequest(BaseModel):
     @field_validator('new_password')
     def password_check(cls, v): 
         return validate_password_strength(v)
+    
+
+class ForgotPasswordRequest(BaseModel):
+    email: EmailStr

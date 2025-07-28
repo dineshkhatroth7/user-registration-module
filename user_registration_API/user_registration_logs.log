@@ -156,3 +156,22 @@
 2025-07-27 19:54:32,503 - INFO - login executed in 449 ms
 2025-07-27 19:57:25,882 - WARNING - Password expired for 8749235126
 2025-07-27 19:57:44,926 - WARNING - Password expired for 8749235126
+2025-07-27 23:00:34,580 - INFO - [ResetToken] Sent to henrry@gmail.com (valid 24h): deDLFu47BxbR4daAxERP5JdFnc5-wsSXJj9ZcCvKhJA
+2025-07-27 23:00:34,581 - INFO - forgot_password executed in 1383 ms
+2025-07-27 23:00:47,098 - INFO - [ResetToken] Sent to henrry@gmail.com (valid 24h): HPmJgjNItCS3mrk61NXE_OR3KvaQb2I2p772udW31Zw
+2025-07-27 23:00:47,098 - INFO - forgot_password executed in 96 ms
+2025-07-27 23:00:49,494 - INFO - [ResetToken] Sent to henrry@gmail.com (valid 24h): oJCaaT23PLtcyXfd7JqmrLUFxPr8TzhqBLmln-NKkmI
+2025-07-27 23:00:49,494 - INFO - forgot_password executed in 97 ms
+2025-07-27 23:00:51,101 - WARNING - [ForgotPassword] Rate limit exceeded for henrry@gmail.com
+2025-07-28 10:46:01,304 - INFO - [ResetToken] Sent to henrry@gmail.com (valid 24h): CyOYkL0E4z3fXV36y6tt-FAIhJfFTcTITEE8WeRVFcg
+2025-07-28 10:46:01,305 - INFO - forgot_password executed in 1211 ms
+2025-07-28 10:46:23,910 - INFO -  Email not found: henrr@gmail.com
+2025-07-28 10:46:23,910 - INFO - forgot_password executed in 28 ms
+2025-07-28 10:46:35,351 - INFO - [ResetToken] Sent to henrry@gmail.com (valid 24h): UdT1zcV4Wglb4DzFc0cOx-oYxRoHsr-OZlk1PSMPCo4
+2025-07-28 10:46:35,351 - INFO - forgot_password executed in 568 ms
+2025-07-28 10:46:46,594 - INFO - [ResetToken] Sent to henrry@gmail.com (valid 24h): 6Sr5d7z5SpYycXsI5vSp55k0TwOa-kTZ4mOyyIsfLBI
+2025-07-28 10:46:46,594 - INFO - forgot_password executed in 112 ms
+2025-07-28 10:46:53,401 - WARNING - [ForgotPassword] Rate limit exceeded for henrry@gmail.com
+2025-07-28 10:47:32,250 - INFO -  Email not found: henrr@gmail.com
+2025-07-28 10:47:32,251 - INFO - forgot_password executed in 38 ms
+2025-07-28 10:47:51,190 - WARNING - [ForgotPassword] Rate limit exceeded for henrry@gmail.com

@@ -1,13 +1,13 @@
 
-from app.models.user_models import UserRegister,LoginRequest,ChangeContactRequest,ChangePasswordRequest
+from app.models.user_models import UserRegister,LoginRequest,ChangeContactRequest,ChangePasswordRequest,ForgotPasswordRequest
 from app.db.mongo import users_collection
 from app.utils.logger import logger  
-from app.utils.exceptions import UserAlreadyExistsException,InvalidCredentialsException,SamePasswordException,IncorrectOldPasswordException,PasswordExpiredException
-from datetime import datetime,timezone
-from passlib.context import CryptContext
+from app.utils.exceptions import UserAlreadyExistsException,InvalidCredentialsException,SamePasswordException,IncorrectOldPasswordException,PasswordExpiredException,MaxAttemptsException
+from datetime import datetime,timezone,timedelta
 from app.utils.jwt_handler import create_jwt_token
 from bson import ObjectId
 from app.utils.password import hash_password,verify_password,pwd_context,is_password_expired
+import secrets
 
 
 async def register_user_service(request: UserRegister):
@@ -146,3 +146,53 @@ async def change_password_service(user_id:str,request:ChangePasswordRequest):
     )
     logger.info(f"Password changed successfully for user_id: {user_id}")
     return {"message": "Password changed successfully"}
+
+
+RESET_TOKEN_EXPIRY_HOURS = 24
+MAX_ATTEMPTS_PER_DAY = 3
+
+async def forgot_password_service(request: ForgotPasswordRequest):
+    email = request.email.lower()
+    user = await users_collection.find_one({"email": email})
+
+    if not user:
+        logger.info(f" Email not found: {email}")
+        return 
+
+    today_str = str(datetime.now(timezone.utc).date())
+    last_request = user.get("last_reset_request")
+    attempts = user.get("reset_attempts", 0)
+
+    if last_request == today_str:
+        if attempts >= MAX_ATTEMPTS_PER_DAY:
+            logger.warning(f"[ForgotPassword] Rate limit exceeded for {email}")
+            raise MaxAttemptsException()
+        await users_collection.update_one(
+            {"_id": user["_id"]},
+            {"$inc": {"reset_attempts": 1}}
+        )
+    else:
+        await users_collection.update_one(
+            {"_id": user["_id"]},
+            {"$set": {
+                "reset_attempts": 1,
+                "last_reset_request": today_str
+            }}
+        )
+
+    token = secrets.token_urlsafe(32)
+    expiry = datetime.now(timezone.utc) + timedelta(hours=RESET_TOKEN_EXPIRY_HOURS)
+
+    await users_collection.update_one(
+        {"_id": user["_id"]},
+        {"$set": {
+            "reset_token": token,
+            "reset_token_expiry": expiry
+        }}
+    )
+
+    logger.info(f"[ResetToken] Sent to {email} (valid 24h): {token}")
+
+    return {"message": "Reset link sent to email vaild for 24h"}
+
+

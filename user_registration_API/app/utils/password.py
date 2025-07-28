@@ -16,5 +16,5 @@ def is_password_expired(last_changed: datetime) -> bool:
     try:
         last_changed = last_changed.astimezone(timezone.utc)
     except Exception:
-        return True  # If conversion fails, treat as expired
+        return True 
     return (now - last_changed) > timedelta(days=30)

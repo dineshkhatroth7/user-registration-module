@@ -32,3 +32,10 @@ class PasswordExpiredException(HTTPException):
             status_code=status.HTTP_403_FORBIDDEN,
             detail="Password expired. Please change your password."
         )
+
+class MaxAttemptsException(HTTPException):
+    def __init__(self):
+        super().__init__(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail="Max 3 reset attempts per day reached."
+        )
