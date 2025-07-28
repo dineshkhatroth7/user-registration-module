@@ -3,6 +3,7 @@ from datetime import datetime,timedelta,timezone
 from jose import jwt,JWTError
 from fastapi.security import OAuth2PasswordBearer
 from fastapi import Depends, HTTPException
+from app.db.mongo import blacklist_collection
 
 
 SECRET_KEY = os.getenv("SECRET_KEY")
@@ -19,12 +20,22 @@ def create_jwt_token(data: dict) -> str:
     to_encode.update({"exp": expire})
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
-
-def get_current_user(token: str = Depends(oauth2_scheme)):
+def decode_jwt(token: str):
     try:
-        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        return jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+    except JWTError:
+        raise HTTPException(status_code=401, detail="Invalid token")
+
+
+async def get_current_user(token: str = Depends(oauth2_scheme)):
+    blacklisted = await blacklist_collection.find_one({"token": token})
+    if blacklisted:
+            raise HTTPException(status_code=401, detail="Token has been revoked")
+       
+    try:
+        payload = decode_jwt(token)
         user_id = payload.get("sub")
-        if user_id is None:
+        if not user_id:
             raise HTTPException(status_code=401, detail="Token missing user ID")
         return {"user_id": user_id}
     except JWTError:
